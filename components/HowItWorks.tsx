@@ -168,7 +168,7 @@ function Arttasks({ play }: { play: boolean }) {
           </g>
         );
       })}
-      <g key={step >= CERTS.length ? "on" : "off"} className={step >= CERTS.length ? "a-pop" : ""} style={{ ...BOX, opacity: step >= CERTS.length ? 1 : 0.0, transition: "opacity .2s" }}>
+      <g key={step >= Tasks.length ? "on" : "off"} className={step >= Tasks.length ? "a-pop" : ""} style={{ ...BOX, opacity: step >= tasks.length ? 1 : 0.0, transition: "opacity .2s" }}>
         <rect x="258" y="160" width="72" height="46" rx="10" fill="var(--lime)" />
         <text x="294" y="177" textAnchor="middle" fontSize="6.8" fontWeight="700" fill="var(--ink)" letterSpacing=".3">JOB DONE</text>
         <path d="M285 188l6 6 11-12" fill="none" stroke="var(--ink)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
