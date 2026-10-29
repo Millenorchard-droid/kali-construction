@@ -82,7 +82,7 @@ export const SERVICES = [
   { tag: "MADE & FITTED", title: "Carpentry & Joinery", body: "Doors, skirting, fitted storage and general carpentry and joinery works.", icon: "hammer" },
   { tag: "EXTERNAL WORKS", title: "Outdoor & Landscaping", body: "Patios, paving, fencing, decking and general outdoor improvements.", icon: "trees" },
   { tag: "FULL SERVICE", title: "Renovations & Refurbishments", body: "Property renovations and refurbishments, with the work and trades managed from start to finish.", icon: "home" },
-  { tag: "FULL BUILD", title: "Extensions", body: "Single and double-storey extensions, kitchen extensions and wraparound projects.", icon: "home" },
+  { tag: "FULL BUILD", title: "Extensions", body: "Single and double-storey extensions, kitchen extensions and side extensions.", icon: "home" },
   { tag: "FULL BUILD", title: "Loft Conversions", body: "Loft conversions designed to create more usable space within your home.", icon: "home" },
 ] as const;
 

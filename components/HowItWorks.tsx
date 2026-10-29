@@ -50,11 +50,17 @@ function useCountUp(target: number, go: boolean, duration = 1700) {
 const HEAD = { fontFamily: "var(--font-head)" } as const;
 const BOX = { transformBox: "fill-box", transformOrigin: "center" } as const;
 
-/* 01. Emergency callout: van drives in, phone rings, 45 minute average counts up */
+const HOME_STEPS = STEPS.map((step, i) => i === 0
+  ? { ...step, cta: "See our services →", href: "/services" }
+  : i === 2
+    ? { ...step, cta: "Get in touch →", href: "/#get-started" }
+    : step);
+
+/* 01. A job enquiry comes in and is passed to the right team. */
 function ArtCall({ play }: { play: boolean }) {
-  const mins = useCountUp(45, play);
+  const enquiries = useCountUp(3, play);
   return (
-    <svg viewBox="0 0 372 260" className={`art-svg${play ? " play" : ""}`} role="img" aria-label="Kali emergency callout, 45 minute average response">
+    <svg viewBox="0 0 372 260" className={`art-svg${play ? " play" : ""}`} role="img" aria-label="A new property job enquiry being received">
       <rect width="372" height="260" rx="28" fill="#f6f6f4" />
       {/* phone */}
       <g className="a-phone">
@@ -65,15 +71,15 @@ function ArtCall({ play }: { play: boolean }) {
         <g transform="translate(176 90) scale(.83)" className="a-ring-tilt" style={BOX}>
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="none" stroke="#f6f6f4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </g>
-        <text x="186" y="133" textAnchor="middle" fontSize="7.5" fontWeight="600" fill="var(--ink)">Kali Emergency</text>
+        <text x="186" y="133" textAnchor="middle" fontSize="7.5" fontWeight="600" fill="var(--ink)">New job enquiry</text>
         <rect x="163" y="142" width="46" height="12" rx="6" fill="var(--ink)" />
-        <text x="186" y="150.5" textAnchor="middle" fontSize="5.5" fontWeight="700" fill="#f6f6f4" letterSpacing=".4">CALL NOW</text>
+        <text x="186" y="150.5" textAnchor="middle" fontSize="5.5" fontWeight="700" fill="#f6f6f4" letterSpacing=".4">WE CAN HELP</text>
       </g>
-      {/* 45 min avg */}
+      {/* incoming job count */}
       <g className="a-badge" style={BOX}>
         <circle cx="296" cy="109" r="35" fill="var(--lime)" />
-        <text x="296" y="111" textAnchor="middle" fontSize="21" fontWeight="800" fill="var(--ink)" style={HEAD} className="num">{mins}</text>
-        <text x="296" y="124" textAnchor="middle" fontSize="6.5" fontWeight="600" fill="var(--ink)" letterSpacing=".3">MIN AVG</text>
+        <text x="296" y="111" textAnchor="middle" fontSize="21" fontWeight="800" fill="var(--ink)" style={HEAD} className="num">{enquiries}</text>
+        <text x="296" y="124" textAnchor="middle" fontSize="6.5" fontWeight="600" fill="var(--ink)" letterSpacing=".3">JOB DETAILS</text>
       </g>
       {/* van */}
       <g className="a-van">
@@ -95,53 +101,51 @@ function ArtCall({ play }: { play: boolean }) {
   );
 }
 
-/* 02. Plan confirmed: status panel, flickering flame, floating Gas Safe tag, calendar tick pops */
+/* 02. The work, costs and next steps are confirmed. */
 function ArtStatus({ play }: { play: boolean }) {
   return (
-    <svg viewBox="0 0 372 260" className={`art-svg${play ? " play" : ""}`} role="img" aria-label="Boiler status: all systems normal, Gas Safe registered, serviced October 2025">
+    <svg viewBox="0 0 372 260" className={`art-svg${play ? " play" : ""}`} role="img" aria-label="A job plan with the work, price and next steps confirmed">
       <rect width="372" height="260" rx="28" fill="var(--sand-card)" />
       {/* legs */}
       <rect x="152" y="180" width="9" height="30" rx="4.5" fill="var(--sand)" />
       <rect x="212" y="180" width="9" height="30" rx="4.5" fill="var(--sand)" />
-      {/* boiler */}
+      {/* job plan */}
       <rect x="110" y="34" width="150" height="150" rx="14" fill="#f6f6f4" stroke="var(--sand)" strokeWidth="2" />
       <rect x="124" y="58" width="122" height="58" rx="5" fill="var(--sand-soft)" />
       <circle cx="136" cy="72" r="3.2" fill="var(--lime)" stroke="var(--ink)" strokeWidth="1" className="a-live" style={BOX} />
-      <text x="187" y="76" textAnchor="middle" fontSize="8" fontWeight="500" fill="var(--ink)" letterSpacing=".3">STATUS</text>
-      <text x="187" y="98" textAnchor="middle" fontSize="10.5" fontWeight="600" fill="var(--ink)">All systems normal</text>
-      <circle cx="185" cy="148" r="18" fill="var(--sand-card)" />
-      <g transform="translate(172 135) scale(1.08)" className="a-flame" style={BOX}>
-        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="var(--ink)" />
-      </g>
-      {/* gas safe tag */}
+      <text x="187" y="76" textAnchor="middle" fontSize="8" fontWeight="500" fill="var(--ink)" letterSpacing=".3">JOB PLAN</text>
+      <text x="187" y="98" textAnchor="middle" fontSize="10.5" fontWeight="600" fill="var(--ink)">Work and costs agreed</text>
+      <circle cx="185" cy="148" r="18" fill="var(--lime)" />
+      <text x="185" y="155" textAnchor="middle" fontSize="19" fontWeight="700" fill="var(--ink)" style={HEAD}>£</text>
+      {/* quote agreed tag */}
       <g className="a-float" style={BOX}>
         <rect x="260" y="54" width="70" height="38" rx="19" fill="var(--lime)" />
-        <text x="295" y="70" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="var(--ink)">GAS SAFE</text>
-        <text x="295" y="80" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="var(--ink)">REGISTERED</text>
+        <text x="295" y="70" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="var(--ink)">NEXT</text>
+        <text x="295" y="80" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="var(--ink)">STEPS</text>
       </g>
       {/* calendar */}
       <g className="a-cal" style={BOX}>
         <rect x="40" y="148" width="66" height="56" rx="6" fill="#f6f6f4" stroke="var(--sand)" strokeWidth="1.5" />
         <path d="M40 154a6 6 0 0 1 6-6h54a6 6 0 0 1 6 6v8H40z" fill="var(--ink)" />
-        <text x="73" y="159" textAnchor="middle" fontSize="7" fontWeight="700" fill="#f6f6f4" letterSpacing=".3">OCT 2025</text>
+        <text x="73" y="159" textAnchor="middle" fontSize="7" fontWeight="700" fill="#f6f6f4" letterSpacing=".3">PLAN</text>
         <path className="a-tick" d="M64 178l6 6 11-12" fill="none" stroke="var(--ink)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="73" y="198" textAnchor="middle" fontSize="6.5" fill="var(--graphite)">Serviced</text>
+        <text x="73" y="198" textAnchor="middle" fontSize="6.5" fill="var(--graphite)">Confirmed</text>
       </g>
     </svg>
   );
 }
 
-/* 03. Certificates: five checks tick off one by one, then ALL CERTS pops */
-const CERTS = ["Gas Safety Cert", "LOLER Inspection", "Annual Service", "CP12 Certificate", "Water Regs Check"];
+/* 03. Coordinated work moves through to completion. */
+const TASKS = ["Work scheduled", "Right trades", "Progress checked", "Finishing touches", "Job complete"];
 
 function ArtCerts({ play }: { play: boolean }) {
-  const [step, setStep] = useState(CERTS.length); // resting state: everything ticked
+  const [step, setStep] = useState(TASKS.length); // resting state: work is complete
   useEffect(() => {
     if (!play) return;
     let t: ReturnType<typeof setTimeout>;
     const run = (n: number) => {
       setStep(n);
-      if (n < CERTS.length) t = setTimeout(() => run(n + 1), 620);
+      if (n < TASKS.length) t = setTimeout(() => run(n + 1), 620);
       else t = setTimeout(() => run(0), 3800);
     };
     run(0);
@@ -149,11 +153,11 @@ function ArtCerts({ play }: { play: boolean }) {
   }, [play]);
 
   return (
-    <svg viewBox="0 0 372 260" className={`art-svg${play ? " play" : ""}`} role="img" aria-label="Certificate checklist: all certificates complete">
+    <svg viewBox="0 0 372 260" className={`art-svg${play ? " play" : ""}`} role="img" aria-label="A coordinated property job progressing through to completion">
       <rect width="372" height="260" rx="28" fill="#eef3c4" />
       <rect x="118" y="38" width="136" height="176" rx="12" fill="#f6f6f4" stroke="var(--sand)" strokeWidth="2" />
       <rect x="150" y="30" width="72" height="17" rx="8.5" fill="var(--ink)" />
-      {CERTS.map((c, i) => {
+      {TASKS.map((c, i) => {
         const y = 80 + i * 25;
         const done = i < step;
         return (
@@ -166,7 +170,7 @@ function ArtCerts({ play }: { play: boolean }) {
       })}
       <g key={step >= CERTS.length ? "on" : "off"} className={step >= CERTS.length ? "a-pop" : ""} style={{ ...BOX, opacity: step >= CERTS.length ? 1 : 0.0, transition: "opacity .2s" }}>
         <rect x="258" y="160" width="72" height="46" rx="10" fill="var(--lime)" />
-        <text x="294" y="177" textAnchor="middle" fontSize="6.8" fontWeight="700" fill="var(--ink)" letterSpacing=".3">ALL CERTS</text>
+        <text x="294" y="177" textAnchor="middle" fontSize="6.8" fontWeight="700" fill="var(--ink)" letterSpacing=".3">JOB DONE</text>
         <path d="M285 188l6 6 11-12" fill="none" stroke="var(--ink)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
       </g>
     </svg>
@@ -176,7 +180,7 @@ function ArtCerts({ play }: { play: boolean }) {
 const ARTS = [ArtCall, ArtStatus, ArtCerts];
 
 function Row({ i }: { i: number }) {
-  const s = STEPS[i];
+  const s = HOME_STEPS[i];
   const Art = ARTS[i];
   const { ref, seen } = useInView<HTMLDivElement>();
   const reverse = i === 1;

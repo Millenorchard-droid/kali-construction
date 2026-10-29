@@ -25,17 +25,16 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               <li><Link href="/about">About Us</Link></li>
-              <li><Link href="/our-work">Our Work</Link></li>
               <li><Link href="/testimonials">Testimonials</Link></li>
               <li><Link href="/commercial">Commercial</Link></li>
             </ul>
           </div>
           <div>
-            <h4>Pricing</h4>
+            <h4>Areas we cover</h4>
             <ul>
-              <li><Link href="/quote">Plans &amp; Rates</Link></li>
-              <li><Link href="/quote">Request a Quote</Link></li>
-              <li><Link href="/commercial">Business Plans</Link></li>
+              <li>London</li>
+              <li>Greater London</li>
+              <li>Selected areas in the UK</li>
             </ul>
           </div>
           <div>

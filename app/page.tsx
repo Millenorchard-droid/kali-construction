@@ -44,7 +44,7 @@ export default function Home() {
       <section style={{ background: "var(--sand-soft)" }}>
         <div className="section">
           <p className="eyebrow" style={{ marginBottom: 12 }}>How it works</p>
-          <h2 className="hd tight" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", maxWidth: 520, marginBottom: 56 }}>One call, every trade.</h2>
+          <h2 className="hd tight" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", maxWidth: 520, marginBottom: 56 }}>Simple from start to finish.</h2>
           <HowItWorks />
         </div>
       </section>
@@ -68,13 +68,13 @@ export default function Home() {
       </section>
 
       {/* Get started */}
-      <section className="wrap" style={{ paddingBottom: 80 }}>
+      <section id="get-started" className="wrap" style={{ paddingBottom: 80, scrollMarginTop: 100 }}>
         <div className="dark" style={{ padding: 40 }}>
           <h2 className="hd tight" style={{ color: "#f6f6f4", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", textTransform: "uppercase", marginBottom: 32 }}>Get started</h2>
           <div className="grid-3">
             <div style={{ background: "var(--ink-2)", borderRadius: 18, padding: 24 }}>
               <p className="eyebrow" style={{ color: "var(--stone)", marginBottom: 12 }}>CALL US</p>
-              <p style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.35, marginBottom: 20 }}>Speak directly to our dispatch team.</p>
+              <p style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.35, marginBottom: 20 }}>Let&rsquo;s talk about your job.</p>
               <a href={CONTACT.phoneHref} className="btn-outline" style={{ fontSize: 13, padding: "10px 16px" }}>Call {CONTACT.phoneDisplay}</a>
             </div>
             <div style={{ background: "#41443a", border: "1px solid #5d6247", borderRadius: 18, padding: 24 }}>

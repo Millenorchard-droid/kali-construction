@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Home from "@/app/page";
 import Services from "@/app/services/page";
-import OurWork from "@/app/our-work/page";
 import Commercial from "@/app/commercial/page";
 import About from "@/app/about/page";
 import Testimonials from "@/app/testimonials/page";
@@ -13,7 +12,7 @@ import Quote from "@/app/quote/page";
 import { currentRoute } from "next/navigation";
 
 const ROUTES: Record<string, () => JSX.Element> = {
-  home: Home, services: Services, "our-work": OurWork, commercial: Commercial,
+  home: Home, services: Services, commercial: Commercial,
   about: About, testimonials: Testimonials, quote: Quote,
 };
 

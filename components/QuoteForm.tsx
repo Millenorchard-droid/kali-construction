@@ -29,7 +29,7 @@ export default function QuoteForm() {
   if (state === "done") {
     return (
       <div className="card-white" style={{ padding: 40, textAlign: "center" }}>
-        <div className="check-pop" style={{ width: 56, height: 56, borderRadius: 9999, background: "var(--lime)", border: "1px solid var(--ink)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 24, marginBottom: 16 }}>✓</div>
+        <div className="check-pop" style={{ width: 56, height: 56, borderRadius: 9999, background: "var(--lime)", border: 0, display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 24, marginBottom: 16 }}>✓</div>
         <h3 className="hd tight" style={{ fontSize: 24, marginBottom: 8 }}>Thank you.</h3>
         <p style={{ color: "var(--graphite)", fontSize: 15 }}>We’ve got your request and will be in touch during your preferred callback time.</p>
       </div>

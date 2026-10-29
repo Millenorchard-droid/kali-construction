@@ -25,7 +25,7 @@ export default function Commercial() {
       <section className="wrap" style={{ maxWidth: 840, paddingBottom: 80 }}>
         <div className="grid-3">
           {POINTS.map((p) => (
-            <div key={p.title} className="card-white" style={{ padding: 24, display: "flex", flexDirection: "column", gap: 14 }}>
+            <div key={p.title} className="card-white commercial-point" style={{ padding: 24, display: "flex", flexDirection: "column", gap: 14 }}>
               <IconTile name={p.icon} />
               <h3 className="hd tight" style={{ fontSize: 17 }}>{p.title}</h3>
               <p style={{ color: "var(--graphite)", fontSize: 13, lineHeight: 1.55 }}>{p.body}</p>

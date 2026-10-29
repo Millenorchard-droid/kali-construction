@@ -1,8 +1,7 @@
 import IconTile, { IconName } from "@/components/Icon";
 import FinalCta from "@/components/FinalCta";
 import Reveal from "@/components/Reveal";
-import { CERTIFICATIONS, COMPANY, SHOW_PLACEHOLDER_LABELS } from "@/lib/content";
-import { CheckCircle2 } from "lucide-react";
+import { COMPANY, SHOW_PLACEHOLDER_LABELS } from "@/lib/content";
 
 export const metadata = { title: "About Us | Kali Construction" };
 
@@ -47,14 +46,12 @@ function Placeholder({ children }: { children: React.ReactNode }) {
 
 export default function About() {
   const showPh = SHOW_PLACEHOLDER_LABELS;
-  const certs = CERTIFICATIONS.filter((c) => c.confirmed || showPh);
   const officeLines = COMPANY.registeredOffice ? COMPANY.registeredOffice.split(/\n|,\s*/) : null;
 
   // In production (placeholder labels off) a company-information card only appears once its data is confirmed.
   const showOffice = Boolean(officeLines) || showPh;
   const showReg = Boolean(COMPANY.registeredName && COMPANY.registrationNumber) || showPh;
-  const showCerts = certs.length > 0;
-  const companyCards = [showOffice, showReg, showCerts].filter(Boolean).length;
+  const companyCards = [showOffice, showReg].filter(Boolean).length;
 
   return (
     <>
@@ -70,9 +67,12 @@ export default function About() {
       </section>
 
       {/* SECTION 2: three trust boxes */}
-      <section className="wrap about-sec" aria-labelledby="about-trust">
+      <section className="wrap about-sec about-centred" aria-labelledby="about-trust">
         <Reveal>
-          <h2 id="about-trust" className="hd tight about-h2">Why Choose Kali Construction</h2>
+          <div className="about-centre-head">
+            <p className="eyebrow">HOW WE WORK</p>
+            <h2 id="about-trust" className="hd tight about-h2">Why Choose Kali Construction</h2>
+          </div>
           <div className="about-grid">
             {TRUST.map((t) => <InfoCard key={t.title} {...t} />)}
           </div>
@@ -80,11 +80,12 @@ export default function About() {
       </section>
 
       {/* SECTION 3: who we work with */}
-      <section className="wrap about-sec" aria-labelledby="about-who">
+      <section className="wrap about-sec about-centred" aria-labelledby="about-who">
         <Reveal>
-          <p className="eyebrow" style={{ marginBottom: 12 }}>WHO WE WORK WITH</p>
-          <h2 id="about-who" className="hd tight about-h2" style={{ marginBottom: 12 }}>One team, whatever the property.</h2>
-          <p className="about-sub">Whether it&rsquo;s a single home or a property portfolio, we aim to make the process straightforward, with clear communication, coordinated trades and one point of contact.</p>
+          <div className="about-centre-head">
+            <p className="eyebrow">OUR CLIENTS</p>
+            <h2 id="about-who" className="hd tight about-h2">Who we work with</h2>
+          </div>
           <div className="about-grid">
             {WHO.map((t) => <InfoCard key={t.title} {...t} />)}
           </div>
@@ -121,21 +122,6 @@ export default function About() {
                     <dt>Companies House number</dt>
                     <dd>{COMPANY.registrationNumber ?? <Placeholder>Registration number to be confirmed</Placeholder>}</dd>
                   </dl>
-                </article>
-              )}
-              {showCerts && (
-                <article className="card-white about-card about-card-left about-certs">
-                  <div className="about-card-head"><IconTile name="shield" /><h3 className="hd tight">Certifications</h3></div>
-                  <hr className="about-rule" />
-                  <ul className="about-list">
-                    {certs.map((c) => (
-                      <li key={c.label}>
-                        <CheckCircle2 size={18} strokeWidth={1.75} aria-hidden="true" />
-                        <span>{c.label}</span>
-                        {!c.confirmed && <span className="ph-tag about-unver">Unverified</span>}
-                      </li>
-                    ))}
-                  </ul>
                 </article>
               )}
             </div>
