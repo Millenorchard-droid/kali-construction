@@ -9,9 +9,9 @@ export const metadata = { title: "About Us | Kali Construction" };
 // Edit copy here. Company details and certifications live in lib/content.ts and are never published unverified.
 
 const INTRO = [
-  "Kali Construction provides property repairs, maintenance and building services across London and the surrounding areas.",
-  "We work with homeowners, landlords, letting agents and businesses to coordinate reliable property work, from everyday repairs and maintenance to larger improvements and renovations. By bringing multiple trades together under one roof, we aim to make the process straightforward, with one point of contact throughout.",
-  "Our approach centres on clear communication, practical solutions and transparent pricing, so customers understand the work required and what happens next.",
+  "Kali Construction provides property repairs, maintenance and construction services for homeowners, landlords and businesses across London and surrounding areas.",
+  "From everyday repairs and smaller jobs to kitchens, bathrooms, renovations and extensions, we cover a wide range of property works, bringing together the right trades for each project.",
+  "We take care of the process from start to finish, coordinating the work, keeping communication clear and making sure customers know what to expect along the way.",
 ];
 
 type Item = { icon: IconName; title: string; body: string };

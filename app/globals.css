@@ -281,6 +281,32 @@ h1, h2, h3 { margin: 0; }
 .about-unver { margin-left: auto; font-size: 9px; padding: 2px 6px; white-space: nowrap; }
 .about-todo { display: inline-block; border: 0; border-radius: 8px; background: var(--lime); padding: 6px 10px; font-size: 13px; line-height: 1.4; }
 .service-card .icon-wrap, .commercial-point .icon-wrap { background: var(--lime); border-color: transparent; }
+
+/* Quote page layout: desktop proportions stay fixed while the form stacks cleanly on small screens. */
+.quote-page { padding-bottom: 100px; }
+.quote-eyebrow { margin-bottom: 14px; }
+.quote-title { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: 20px; }
+.quote-intro { color: var(--graphite); font-size: 16px; line-height: 1.6; max-width: 520px; margin-bottom: 48px; }
+.quote-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.quote-next { padding: 32px; }
+.quote-next-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; }
+.quote-next-title { font-size: 24px; margin-bottom: 12px; }
+.quote-next-copy { color: var(--graphite); font-size: 14px; line-height: 1.6; }
+.quote-form { min-width: 0; padding: 28px; }
+.quote-choice-group { min-width: 0; border: 0; margin: 0 0 24px; padding: 0; }
+.quote-choice-group legend { padding: 0; }
+.quote-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.quote-options .opt { text-align: left; min-width: 0; }
+.quote-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+.quote-fields > div { min-width: 0; }
+.quote-message { resize: vertical; }
+.quote-file { min-width: 0; }
+.quote-submit-error { margin-bottom: 12px; }
+.quote-submit { min-height: 48px; }
+.quote-success { padding: 40px; text-align: center; }
+.quote-email-title { font-size: 24px; margin-bottom: 12px; }
+.quote-email-copy { color: var(--graphite); font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+
 @media (max-width: 960px) {
   .about-company { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
@@ -292,4 +318,29 @@ h1, h2, h3 { margin: 0; }
   .about-list { grid-template-columns: 1fr; }
   .about-intro-p { font-size: 16px; }
   .about-intro-p:first-of-type { font-size: 17px; }
+}
+
+@media (max-width: 768px) {
+  .quote-page { padding: 48px 16px 64px; }
+  .quote-title { font-size: clamp(2rem, 8vw, 3.2rem); line-height: 1.04; }
+  .quote-intro { margin-bottom: 30px; }
+  .quote-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .quote-form { padding: 22px; }
+  .quote-next { padding: 24px; }
+  .quote-next-head { margin-bottom: 18px; }
+  .quote-success { padding: 32px 22px; }
+  .quote-options .opt { min-height: 48px; padding: 11px 12px; line-height: 1.35; }
+  .quote-fields .field, .quote-form .field { font-size: 16px; min-height: 48px; }
+  .quote-file { height: auto; min-height: 48px !important; padding: 10px 12px; }
+  .quote-file::file-selector-button { max-width: 100%; margin: 0 8px 0 0; }
+  .quote-message { min-height: 112px !important; }
+}
+
+@media (max-width: 520px) {
+  .perk-nav { gap: 8px; padding: 6px 8px 6px 14px; }
+  .nav-logo { font-size: 20px; }
+  .perk-nav-actions { gap: 6px; }
+  .nav-cta { padding: 10px 14px; font-size: 12px; white-space: nowrap; }
+  .quote-fields { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .quote-next-head { align-items: flex-start; flex-wrap: wrap; }
 }

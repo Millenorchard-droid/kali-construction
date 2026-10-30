@@ -138,7 +138,7 @@ function ArtStatus({ play }: { play: boolean }) {
 /* 03. Coordinated work moves through to completion. */
 const TASKS = ["Work scheduled", "Right trades", "Progress checked", "Finishing touches", "Job complete"];
 
-function Arttasks({ play }: { play: boolean }) {
+function ArtCerts({ play }: { play: boolean }) {
   const [step, setStep] = useState(TASKS.length); // resting state: work is complete
   useEffect(() => {
     if (!play) return;
@@ -177,7 +177,7 @@ function Arttasks({ play }: { play: boolean }) {
   );
 }
 
-const ARTS = [ArtCall, ArtStatus, Arttasks];
+const ARTS = [ArtCall, ArtStatus, ArtCerts];
 
 function Row({ i }: { i: number }) {
   const s = HOME_STEPS[i];
