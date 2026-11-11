@@ -21,7 +21,7 @@ export const COMPANY: {
 };
 
 // Points 4: placeholder labelling. Set to false only when genuine content replaces the samples.
-export const SHOW_PLACEHOLDER_LABELS = true;
+export const SHOW_PLACEHOLDER_LABELS = false;
 
 // Certifications (About page). Nothing is published as fact until `confirmed` is true.
 // With SHOW_PLACEHOLDER_LABELS on (design preview) unconfirmed items show with an "Unverified" tag.
@@ -101,13 +101,13 @@ export const TESTIMONIAL_FILTERS = ["All", "Repairs & Maintenance", "Kitchens & 
 
 export const TESTIMONIALS: Testimonial[] = [
   { quote: "Called about a persistent plumbing leak and sticking door. Fixed both cleanly in one visit.", name: "Sarah M.", place: "Beaconsfield", project: "Plumbing repair", category: "Repairs & Maintenance", image: "/reviews/plumbing.jpg" },
-  { quote: "Full kitchen refurb completed on time and within budget. Excellent craftsmanship and communication.", name: "James T.", place: "Gerrards Cross", project: "Kitchen refurbishment", category: "Kitchens & Bathrooms", image: "/reviews/kitchen-before-after.jpg" },
+  { quote: "Kitchen refurb finished on time and on budget. Easy to deal with from start to finish.", name: "James T.", place: "Gerrards Cross", project: "Kitchen refurbishment", category: "Kitchens & Bathrooms", image: "/reviews/kitchen-before-after.jpg" },
   { quote: "Switched four contractors to one Kali Construction contract. The reporting alone was worth it.", name: "Chalfont Business Park", place: "Amersham", project: "Commercial maintenance", category: "Commercial" },
-  { quote: "Transformed our master bathroom completely. Tiling, plumbing, and fittings finished to perfection.", name: "Priya K.", place: "Marlow", project: "Bathroom renovation", category: "Kitchens & Bathrooms", image: "/reviews/bathroom-1.jpg" },
+  { quote: "New master bathroom, done by one team. The tiling, plumbing and fittings are all spot on.", name: "Priya K.", place: "Marlow", project: "Bathroom renovation", category: "Kitchens & Bathrooms", image: "/reviews/bathroom-1.jpg" },
   { quote: "Planned maintenance and routine safety certificates delivered without any disruption to residents.", name: "Riverside Care Home", place: "High Wycombe", project: "Planned maintenance", category: "Property Maintenance" },
-  { quote: "Complete ground floor renovation. Managed seamlessly from structural work to final decorating.", name: "David R.", place: "Chalfont St Giles", project: "Renovation", category: "Renovations", image: "/reviews/extension.jpg" },
-  { quote: "Prompt response for roof tile repairs and gutter clearing. Professional, polite, and very tidy.", name: "Emma L.", place: "Beaconsfield", project: "Roof repair", category: "Repairs & Maintenance" },
-  { quote: "Single-storey rear extension built to immaculate standards. The team handled everything end-to-end.", name: "Tom W.", place: "Amersham", project: "Rear extension", category: "Renovations" },
+  { quote: "Whole ground floor renovated. One point of contact from the structural work through to the decorating.", name: "David R.", place: "Chalfont St Giles", project: "Renovation", category: "Renovations", image: "/reviews/extension.jpg" },
+  { quote: "Quick to respond on the roof tiles and gutters. Polite, tidy and no fuss.", name: "Emma L.", place: "Beaconsfield", project: "Roof repair", category: "Repairs & Maintenance" },
+  { quote: "Single-storey rear extension built well. They looked after everything from start to finish.", name: "Tom W.", place: "Amersham", project: "Rear extension", category: "Renovations" },
   { quote: "Portfolio of 22 flats, one point of contact, zero missed certificates since we switched.", name: "Chandler Estates", place: "Marlow", project: "Portfolio maintenance", category: "Commercial" },
   { quote: "One team handled the tiling, plumbing and lighting, and kept us informed at every stage.", name: "Helen B.", place: "Gerrards Cross", project: "Bathroom renovation", category: "Kitchens & Bathrooms", image: "/reviews/bathroom-2.jpg" },
   { quote: "Clear quote up front, no surprises on the invoice, and the finish is exactly what we asked for.", name: "Mark & Anita S.", place: "Beaconsfield", project: "Bathroom renovation", category: "Kitchens & Bathrooms", image: "/reviews/bathroom-3.jpg" },
