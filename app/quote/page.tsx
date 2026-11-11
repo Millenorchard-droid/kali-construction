@@ -1,8 +1,12 @@
 import QuoteForm from "@/components/QuoteForm";
+import { serviceFromSlug } from "@/lib/content";
 
 export const metadata = { title: "Request a Quote | Kali Construction" };
 
-export default function Quote() {
+// A service "Book" button links here with ?service=<slug>, which preselects that service.
+// Any other route to this page leaves the service unselected.
+export default function Quote({ searchParams }: { searchParams?: { service?: string | string[] } }) {
+  const slug = Array.isArray(searchParams?.service) ? searchParams?.service[0] : searchParams?.service;
   return (
     <section className="section quote-page">
       <p className="eyebrow quote-eyebrow">REQUEST A QUOTE</p>
@@ -11,7 +15,7 @@ export default function Quote() {
         Tell us what you need and we’ll take it from there. We’ll review the details and get back to you within 24 hours.
       </p>
       <div className="quote-layout">
-        <QuoteForm />
+        <QuoteForm initialService={serviceFromSlug(slug)} />
         <div className="card quote-next">
           <div className="quote-next-head">
             <p className="eyebrow">WHAT HAPPENS NEXT</p>

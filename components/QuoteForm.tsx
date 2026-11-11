@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { CALLBACK_TIMES, CONTACT, QUOTE_OPTIONS } from "@/lib/content";
+import { CALLBACK_TIMES, CONTACT, SERVICES } from "@/lib/content";
 import { submitForm } from "@/lib/submit";
 
-type Errors = Partial<Record<"name" | "phone" | "email" | "postcode", string>>;
+type Errors = Partial<Record<"need" | "name" | "phone" | "email" | "postcode", string>>;
 
-export default function QuoteForm() {
-  const [need, setNeed] = useState(QUOTE_OPTIONS[0]);
+export default function QuoteForm({ initialService = "" }: { initialService?: string }) {
+  const [need, setNeed] = useState(initialService);
+  const [callback, setCallback] = useState("");
   const [errors, setErrors] = useState<Errors>({});
   const [state, setState] = useState<"idle" | "sending" | "done" | "email" | "error">("idle");
   const [emailDraft, setEmailDraft] = useState("");
@@ -16,6 +17,7 @@ export default function QuoteForm() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const errs: Errors = {};
+    if (!need) errs.need = "Please select a service.";
     if (!String(fd.get("name") || "").trim()) errs.name = "Please enter your name.";
     if (!String(fd.get("phone") || "").trim()) errs.phone = "Please enter a phone number.";
     if (!/^\S+@\S+\.\S+$/.test(String(fd.get("email") || "").trim())) errs.email = "Please enter a valid email address.";
@@ -31,7 +33,7 @@ export default function QuoteForm() {
         `Email: ${String(fd.get("email") || "").trim()}`,
         `Postcode: ${String(fd.get("postcode") || "").trim()}`,
         `Work needed: ${need}`,
-        `Preferred callback: ${String(fd.get("callback") || "")}`,
+        `Preferred callback: ${callback || "Not specified"}`,
         `Job details: ${String(fd.get("message") || "").trim() || "Not provided"}`,
       ].join("\n");
       setEmailDraft(`mailto:${CONTACT.email}?subject=${encodeURIComponent("Kali Construction quote request")}&body=${encodeURIComponent(body)}`);
@@ -63,14 +65,14 @@ export default function QuoteForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="card-white quote-form">
-      <fieldset className="quote-choice-group">
-        <legend className="field-label">What do you need help with?</legend>
-        <div className="quote-options">
-        {QUOTE_OPTIONS.map((o) => (
-          <button type="button" key={o} className={`opt${need === o ? " active" : ""}`} onClick={() => setNeed(o)} aria-pressed={need === o}>{o}</button>
-        ))}
-        </div>
-      </fieldset>
+      <div style={{ marginBottom: 24 }}>
+        <label className="field-label" htmlFor="q-service">What do you need help with?</label>
+        <select id="q-service" name="service" value={need} onChange={(e) => setNeed(e.target.value)} required aria-invalid={Boolean(errors.need)} aria-describedby={errors.need ? "q-service-error" : undefined} className={`field${need ? "" : " is-empty"}`}>
+          <option value="" disabled>Select a service</option>
+          {SERVICES.map((s) => <option key={s.title} value={s.title}>{s.title}</option>)}
+        </select>
+        {errors.need && <p id="q-service-error" className="field-error">{errors.need}</p>}
+      </div>
 
       <div className="quote-fields">
         <div><label className="field-label" htmlFor="q-name">Full name</label><input id="q-name" name="name" autoComplete="name" required aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "q-name-error" : undefined} className="field" placeholder="Jane Smith" />{errors.name && <p id="q-name-error" className="field-error">{errors.name}</p>}</div>
@@ -81,7 +83,10 @@ export default function QuoteForm() {
 
       <div style={{ marginBottom: 16 }}>
         <label className="field-label" htmlFor="q-cb">Preferred Callback Time</label>
-        <select id="q-cb" name="callback" className="field">{CALLBACK_TIMES.map((t) => <option key={t}>{t}</option>)}</select>
+        <select id="q-cb" name="callback" className={`field${callback ? "" : " is-empty"}`} value={callback} onChange={(e) => setCallback(e.target.value)}>
+          <option value="" disabled>Select a time</option>
+          {CALLBACK_TIMES.map((t) => <option key={t} value={t}>{t}</option>)}
+        </select>
       </div>
       <div style={{ marginBottom: 16 }}>
         <label className="field-label" htmlFor="q-msg">Tell us about the job (optional)</label>

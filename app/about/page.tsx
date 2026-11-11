@@ -60,7 +60,7 @@ export default function About() {
         <Reveal>
           <div className="about-intro">
             <p className="eyebrow">ABOUT US</p>
-            <h1 id="about-intro" className="hd tight">Who We Are</h1>
+            <h1 id="about-intro" className="hd tight">Who we are.</h1>
             {INTRO.map((t) => <p key={t} className="about-intro-p">{t}</p>)}
           </div>
         </Reveal>
@@ -71,7 +71,7 @@ export default function About() {
         <Reveal>
           <div className="about-centre-head">
             <p className="eyebrow">HOW WE WORK</p>
-            <h2 id="about-trust" className="hd tight about-h2">Why Choose Kali Construction</h2>
+            <h2 id="about-trust" className="hd tight about-h2">Why choose Kali Construction?</h2>
           </div>
           <div className="about-grid">
             {TRUST.map((t) => <InfoCard key={t.title} {...t} />)}
@@ -84,7 +84,7 @@ export default function About() {
         <Reveal>
           <div className="about-centre-head">
             <p className="eyebrow">OUR CLIENTS</p>
-            <h2 id="about-who" className="hd tight about-h2">Who we work with</h2>
+            <h2 id="about-who" className="hd tight about-h2">Who we work with.</h2>
           </div>
           <div className="about-grid">
             {WHO.map((t) => <InfoCard key={t.title} {...t} />)}
@@ -98,7 +98,7 @@ export default function About() {
           <Reveal>
             <div className="about-centre-head">
               <p className="eyebrow">COMPANY INFORMATION</p>
-              <h2 id="about-company" className="hd tight about-h2">Company Details</h2>
+              <h2 id="about-company" className="hd tight about-h2">Company details.</h2>
             </div>
             <div className="about-company">
               {showOffice && (

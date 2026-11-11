@@ -1,25 +1,29 @@
-import Link from "next/link";
-import { STEPS } from "@/lib/content";
-import IconTile from "@/components/Icon";
+"use client";
 
-// Point 6: one number pill per card, top-right. Large bold heading and grey paragraph beneath.
-// No intermediate headings, no extra sentences. Home shows the small related icon; Services does not.
-export default function StepCards({ withIcons = false }: { withIcons?: boolean }) {
+import { STEPS } from "@/lib/content";
+import { ARTS, useInView } from "@/components/StepArt";
+
+// Services page: three cards. Number pill top-left, then heading, copy and the matching animation.
+function StepCard({ i }: { i: number }) {
+  const s = STEPS[i];
+  const Art = ARTS[i];
+  const { ref, seen } = useInView<HTMLDivElement>();
   return (
-    <div className="grid-3">
-      {STEPS.map((s) => (
-        <div key={s.n} className="card-white" style={{ padding: 28, display: "flex", flexDirection: "column", gap: 14, position: "relative" }}>
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: withIcons ? "space-between" : "flex-end", minHeight: 28 }}>
-            {withIcons && <IconTile name={s.icon} />}
-            <span className="num-pill">{s.n}</span>
-          </div>
-          <h3 className="hd tight" style={{ fontSize: 22, textTransform: "uppercase" }}>{s.title}</h3>
-          <p style={{ color: "var(--graphite)", fontSize: 15, lineHeight: 1.55 }}>{s.body}</p>
-          {withIcons && (
-            <Link href={s.href} className="btn-ghost" style={{ alignSelf: "flex-start", marginTop: 6 }}>{s.cta}</Link>
-          )}
-        </div>
-      ))}
+    <article className="hiw-card">
+      <span className="num-pill">{s.n}</span>
+      <h3 className="hd tight hiw-card-title">{s.title}</h3>
+      <p className="hiw-card-body">{s.body}</p>
+      <div className="hiw-art hiw-card-art" ref={ref}>
+        <Art play={seen} />
+      </div>
+    </article>
+  );
+}
+
+export default function StepCards() {
+  return (
+    <div className="grid-3 hiw-cards">
+      {[0, 1, 2].map((i) => <StepCard key={i} i={i} />)}
     </div>
   );
 }

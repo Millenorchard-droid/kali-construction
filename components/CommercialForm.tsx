@@ -8,6 +8,7 @@ export default function CommercialForm() {
   const [help, setHelp] = useState(COMMERCIAL_OPTIONS.help[0]);
   const [looking, setLooking] = useState(COMMERCIAL_OPTIONS.looking[0]);
   const [sites, setSites] = useState(COMMERCIAL_OPTIONS.sites[0]);
+  const [callback, setCallback] = useState("");
   const [error, setError] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
@@ -37,14 +38,14 @@ export default function CommercialForm() {
   const group = (label: string, opts: readonly string[], val: string, set: (v: string) => void, cols: number) => (
     <div style={{ marginBottom: 24 }}>
       <p className="field-label">{label}</p>
-      <div style={{ display: "grid", gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: 10 }}>
+      <div className="opt-grid" style={{ "--cols": cols } as React.CSSProperties}>
         {opts.map((o) => <button type="button" key={o} className={`opt${val === o ? " active" : ""}`} onClick={() => set(o)}>{o}</button>)}
       </div>
     </div>
   );
 
   return (
-    <form onSubmit={onSubmit} noValidate className="card-white" style={{ padding: 28 }}>
+    <form onSubmit={onSubmit} noValidate className="card-white commercial-form" style={{ padding: 28 }}>
       {group("What can we help you with?", COMMERCIAL_OPTIONS.help, help, setHelp, 4)}
       {group("What are you looking for?", COMMERCIAL_OPTIONS.looking, looking, setLooking, 3)}
       {group("How many properties or sites is this for?", COMMERCIAL_OPTIONS.sites, sites, setSites, 4)}
@@ -52,7 +53,7 @@ export default function CommercialForm() {
         <label className="field-label" htmlFor="c-where">Where is the work needed?</label>
         <input id="c-where" name="where" className="field" placeholder="e.g. London, M40 corridor, or postcodes..." />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+      <div className="form-2col">
         <div><label className="field-label" htmlFor="c-name">Full name</label><input id="c-name" name="name" className="field" placeholder="Jane Smith" /></div>
         <div><label className="field-label" htmlFor="c-co">Company name</label><input id="c-co" name="company" className="field" placeholder="Acme Properties Ltd" /></div>
         <div><label className="field-label" htmlFor="c-ph">Phone number</label><input id="c-ph" name="phone" className="field" placeholder="07700 900000" /></div>
@@ -60,7 +61,10 @@ export default function CommercialForm() {
       </div>
       <div style={{ marginBottom: 16 }}>
         <label className="field-label" htmlFor="c-cb">Preferred Callback Time</label>
-        <select id="c-cb" name="callback" className="field">{CALLBACK_TIMES.map((t) => <option key={t}>{t}</option>)}</select>
+        <select id="c-cb" name="callback" className={`field${callback ? "" : " is-empty"}`} value={callback} onChange={(e) => setCallback(e.target.value)}>
+          <option value="" disabled>Select a time</option>
+          {CALLBACK_TIMES.map((t) => <option key={t} value={t}>{t}</option>)}
+        </select>
       </div>
       <div style={{ marginBottom: 16 }}>
         <label className="field-label" htmlFor="c-msg">Tell us what you need</label>

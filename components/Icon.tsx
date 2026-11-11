@@ -2,6 +2,7 @@ import {
   Wrench, Droplet, Zap, Home, PaintRoller, Layers, Hammer, Trees,
   PhoneCall, ClipboardList, CheckCircle2, ShieldCheck, Flame, PoundSterling,
   Key, Building2, MapPin, FileText, Building,
+  CookingPot, Bath, HardHat, BrickWall, HousePlus,
 } from "lucide-react";
 
 const MAP = {
@@ -9,6 +10,7 @@ const MAP = {
   hammer: Hammer, trees: Trees, phone: PhoneCall, clipboard: ClipboardList, check: CheckCircle2,
   shield: ShieldCheck, flame: Flame, pound: PoundSterling, key: Key, building2: Building2,
   pin: MapPin, file: FileText, building: Building,
+  kitchen: CookingPot, bath: Bath, hardhat: HardHat, bricks: BrickWall, loft: HousePlus,
 } as const;
 
 export type IconName = keyof typeof MAP;

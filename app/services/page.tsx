@@ -2,7 +2,7 @@ import Link from "next/link";
 import IconTile from "@/components/Icon";
 import StepCards from "@/components/StepCards";
 import FinalCta from "@/components/FinalCta";
-import { SERVICES } from "@/lib/content";
+import { SERVICES, serviceSlug } from "@/lib/content";
 
 export const metadata = { title: "Services | Kali Construction" };
 
@@ -20,7 +20,7 @@ export default function Services() {
       <section className="wrap" style={{ paddingBottom: 80 }}>
         <div className="grid-3">
           {SERVICES.map((s) => (
-            <Link key={s.title} href="/quote" className="card-white lift service-card" style={{ padding: 24, display: "flex", flexDirection: "column", gap: 16, minHeight: 228 }}>
+            <Link key={s.title} href={`/quote?service=${serviceSlug(s.title)}`} className="card-white lift service-card" style={{ padding: 24, display: "flex", flexDirection: "column", gap: 16, minHeight: 228 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
                 <IconTile name={s.icon} />
                 <span className="badge-outline" style={{ fontSize: 10 }}>{s.tag}</span>
@@ -33,7 +33,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section style={{ background: "var(--sand-soft)" }}>
+      <section className="hiw-section">
         <div className="section">
           <p className="eyebrow" style={{ marginBottom: 12 }}>HOW IT WORKS</p>
           <h2 className="hd tight" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", maxWidth: 420, marginBottom: 48 }}>Simple from start to finish.</h2>

@@ -12,9 +12,9 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         <div className="wrap">
-          <p className="eyebrow hero-eyebrow">ALL TRADES • LONDON &amp; SURROUNDING</p>
+          <p className="eyebrow hero-eyebrow">ALL TRADES • LONDON &amp; SURROUNDING AREAS</p>
           <h1>We get to the bottom of it.</h1>
-          <p className="lead">Fix what isn’t working. From everyday repairs to larger renovations and building work, we manage the job from start to finish.</p>
+          <p className="lead">Fix what isn’t working. From everyday repairs to larger renovations<br />and building work, we’ll manage the job from start to finish.</p>
           <div className="hero-actions on-dark">
             <Link href="/quote" className="btn-filled">Request a Quote →</Link>
             <Link href="/services" className="btn-outline">What We Offer</Link>
@@ -28,23 +28,23 @@ export default function Home() {
         <h2 className="hd tight" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", textAlign: "center", marginBottom: 48 }}>Numbers that don&apos;t lie.</h2>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center" }}>
           {STATS.map((s) => (
-            <div key={s.label} style={{ background: "var(--sand-soft)", borderRadius: 24, padding: "40px 24px", flex: "1 1 0", minWidth: 200, textAlign: "center" }}>
+            <div key={s.label} style={{ background: "var(--sand-soft)", border: "1px solid var(--line)", borderRadius: 24, padding: "40px 24px", flex: "1 1 0", minWidth: 200, textAlign: "center" }}>
               {"text" in s && s.text ? (
                 <p className="hd tight" style={{ fontSize: 48, lineHeight: 1, margin: 0 }}>{s.text}</p>
               ) : (
                 <Counter from={s.from as number} to={s.to as number} prefix={s.prefix} suffix={s.suffix} />
               )}
-              <p style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--graphite)", marginTop: 16, marginBottom: 0 }}>{s.label}</p>
+              <p style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--graphite)", marginTop: 16, marginBottom: 0 }}>{s.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* How it works (Point 6: approved card layout, same wording as Services) */}
-      <section style={{ background: "var(--sand-soft)" }}>
+      <section className="hiw-section">
         <div className="section">
           <p className="eyebrow" style={{ marginBottom: 12 }}>How it works</p>
-          <h2 className="hd tight" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", maxWidth: 520, marginBottom: 56 }}>Simple from start to finish.</h2>
+          <h2 className="hd tight" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", maxWidth: 520, marginBottom: 48 }}>Simple from start to finish.</h2>
           <HowItWorks />
         </div>
       </section>
@@ -69,22 +69,22 @@ export default function Home() {
 
       {/* Get started */}
       <section id="get-started" className="wrap" style={{ paddingBottom: 80, scrollMarginTop: 100 }}>
-        <div className="dark" style={{ padding: 40 }}>
+        <div className="dark get-started-box" style={{ padding: 40 }}>
           <h2 className="hd tight" style={{ color: "#f6f6f4", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", textTransform: "uppercase", marginBottom: 32 }}>Get started</h2>
           <div className="grid-3">
-            <div style={{ background: "var(--ink-2)", borderRadius: 18, padding: 24 }}>
-              <p className="eyebrow" style={{ color: "var(--stone)", marginBottom: 12 }}>CALL US</p>
+            <div className="contact-card">
+              <p className="eyebrow" style={{ color: "var(--stone-on-dark)", marginBottom: 12 }}>CALL US</p>
               <p style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.35, marginBottom: 20 }}>Let&rsquo;s talk about your job.</p>
               <a href={CONTACT.phoneHref} className="btn-outline" style={{ fontSize: 13, padding: "10px 16px" }}>Call {CONTACT.phoneDisplay}</a>
             </div>
-            <div style={{ background: "#41443a", border: "1px solid #5d6247", borderRadius: 18, padding: 24 }}>
+            <div className="contact-card">
               <p className="eyebrow" style={{ color: "var(--lime)", marginBottom: 12 }}>WHATSAPP</p>
               <p style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.35, marginBottom: 20 }}>Send us pictures of the issue for a fast response.</p>
               <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-filled" style={{ fontSize: 13, padding: "10px 16px", borderColor: "var(--lime)" }}>Message on WhatsApp →</a>
             </div>
-            <div style={{ background: "var(--ink-2)", borderRadius: 18, padding: 24 }}>
-              <p className="eyebrow" style={{ color: "var(--stone)", marginBottom: 12 }}>EMAIL US</p>
-              <p style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.35, marginBottom: 20 }}>Prefer to write? Drop us an email with the details.</p>
+            <div className="contact-card">
+              <p className="eyebrow" style={{ color: "var(--stone-on-dark)", marginBottom: 12 }}>EMAIL US</p>
+              <p style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.35, marginBottom: 20 }}>Drop us an email with the details.</p>
               <a href={`mailto:${CONTACT.email}`} className="btn-outline" style={{ fontSize: 13, padding: "10px 16px" }}>Email our team</a>
             </div>
           </div>

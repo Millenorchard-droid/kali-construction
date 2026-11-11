@@ -11,7 +11,7 @@ export default function Picker() {
   const active = items[idx];
 
   return (
-    <div className="card" style={{ padding: 40, position: "relative", zIndex: 1 }}>
+    <div className="card picker-card" style={{ padding: 40, position: "relative", zIndex: 1 }}>
       <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: 16, marginBottom: 32 }}>
         <div>
           <p className="eyebrow" style={{ marginBottom: 8 }}>WHAT DO YOU NEED?</p>

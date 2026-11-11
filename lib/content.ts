@@ -44,10 +44,10 @@ export const HOME_PICKER = {
     { label: "Renovation or Extension", tag: "FULL SERVICE", title: "Managed from start to finish", body: "From plans to completion, we’ll coordinate the work, the trades and everything in between." },
     { label: "Plumbing & Heating", tag: "QUALIFIED TRADES", title: "Repairs & installations", body: "Whether it needs fixing, replacing or installing, we’ll get the right expertise on the job and agree the cost first." },
     { label: "Electrical", tag: "QUALIFIED TRADES", title: "Repairs, upgrades & installations", body: "From everyday electrical jobs to larger installations, we’ll get the right electrician on the job and make the costs clear upfront." },
-    { label: "Other", tag: "NO PROBLEM", title: "Not on the list?", body: "Tell us what you need — chances are we can help. If we can, we’ll let you know exactly what happens next." },
+    { label: "Other", tag: "NO PROBLEM", title: "Not on the list?", body: "Tell us what you need, chances are, we can help. If we can, we’ll let you know exactly what happens next." },
   ],
   Business: [
-    { label: "Repairs & Maintenance", tag: "RELIABLE SUPPORT", title: "Repairs when you need them", body: "The right trade on the job, with work and costs clear from the start." },
+    { label: "Repairs & Maintenance", tag: "RELIABLE SUPPORT", title: "Repairs when you need them", body: "The right trade on the job, with work and clear costs from the start." },
     { label: "Planned Works", tag: "PLANNED AROUND YOU", title: "Works scheduled around you", body: "We’ll plan the work, coordinate the trades and agree timings to keep disruption to a minimum." },
     { label: "Property Refurbishments", tag: "START TO FINISH", title: "Everything the property needs", body: "From decorating and flooring to kitchens and bathrooms, all coordinated from start to finish." },
     { label: "End of Tenancy Works", tag: "QUICK TURNAROUND", title: "Ready for re-letting", body: "Repairs and finishing works taken care of, getting the property ready for its next tenant." },
@@ -66,7 +66,7 @@ export const STATS = [
 
 // Point 6: single approved wording, used on Home and Services.
 export const STEPS = [
-  { n: "01", title: "START HERE", body: "Bring us what you’ve got — a problem, a plan or something you simply want changed.", cta: "Book a callout →", href: "/quote", icon: "phone" },
+  { n: "01", title: "START HERE", body: "Bring us what you’ve got. A problem, a plan or something you simply want changed.", cta: "Book a callout →", href: "/quote", icon: "phone" },
   { n: "02", title: "THE PLAN", body: "We’ll confirm the work, the costs and what happens next before anything gets started.", cta: "Request a quote →", href: "/quote", icon: "clipboard" },
   { n: "03", title: "CONSIDER IT HANDLED", body: "From the right trades to the finishing touches, we’ll coordinate the work through to completion.", cta: "See our services →", href: "/services", icon: "check" },
 ] as const;
@@ -75,20 +75,20 @@ export const SERVICES = [
   { tag: "ALL PROPERTY WORKS", title: "Repairs & Maintenance", body: "Everyday repairs, maintenance and smaller jobs that still need doing properly.", icon: "wrench" },
   { tag: "QUALIFIED TRADES", title: "Plumbing & Heating", body: "Plumbing repairs, leaks, installations, boilers, heating works and servicing.", icon: "droplet" },
   { tag: "QUALIFIED TRADES", title: "Electrical", body: "Electrical repairs, fault finding, rewiring, upgrades and installations.", icon: "zap" },
-  { tag: "START TO FINISH", title: "Kitchen Fitting", body: "Complete kitchen installations, including units, worktops, plumbing, electrics and finishing.", icon: "home" },
-  { tag: "START TO FINISH", title: "Bathroom Fitting", body: "Complete bathroom installations, including plumbing, tiling, electrics and finishing.", icon: "home" },
+  { tag: "START TO FINISH", title: "Kitchen Fitting", body: "Complete kitchen installations, including units, worktops, plumbing, electrics and finishing.", icon: "kitchen" },
+  { tag: "START TO FINISH", title: "Bathroom Fitting", body: "Complete bathroom installations, including plumbing, tiling, electrics and finishing.", icon: "bath" },
   { tag: "INTERIOR & EXTERIOR", title: "Painting & Decorating", body: "Painting, decorating and finishing works for interiors and exteriors.", icon: "paint" },
   { tag: "FLOOR FITTING", title: "Flooring", body: "Flooring installation and replacement, including laminate, vinyl, LVT and engineered wood.", icon: "layers" },
   { tag: "MADE & FITTED", title: "Carpentry & Joinery", body: "Doors, skirting, fitted storage and general carpentry and joinery works.", icon: "hammer" },
   { tag: "EXTERNAL WORKS", title: "Outdoor & Landscaping", body: "Patios, paving, fencing, decking and general outdoor improvements.", icon: "trees" },
-  { tag: "FULL SERVICE", title: "Renovations & Refurbishments", body: "Property renovations and refurbishments, with the work and trades managed from start to finish.", icon: "home" },
-  { tag: "FULL BUILD", title: "Extensions", body: "Single and double-storey extensions, kitchen extensions and side extensions.", icon: "home" },
-  { tag: "FULL BUILD", title: "Loft Conversions", body: "Loft conversions designed to create more usable space within your home.", icon: "home" },
+  { tag: "FULL SERVICE", title: "Renovations & Refurbishments", body: "Property renovations and refurbishments, with the work and trades managed from start to finish.", icon: "hardhat" },
+  { tag: "FULL BUILD", title: "Extensions", body: "Single and double-storey extensions, kitchen extensions and side extensions.", icon: "bricks" },
+  { tag: "FULL BUILD", title: "Loft Conversions", body: "Loft conversions designed to create more usable space within your home.", icon: "loft" },
 ] as const;
 
 export const FAQS = [
-  { q: "What kind of work do you take on?", a: "From everyday repairs and maintenance to kitchens, bathrooms, renovations and extensions. Take a look at our Services page for everything we offer." },
-  { q: "Do you take on small jobs?", a: "Absolutely. No job is too small — if it needs doing, tell us about it and we’ll let you know how we can help." },
+  { q: "What kind of work do you take on?", a: "From everyday repairs and maintenance to kitchens, bathrooms, renovations and extensions. Take a look at our services page for everything we offer." },
+  { q: "Do you take on small jobs?", a: "Absolutely. No job is too small. If it needs doing, tell us about it and we’ll let you know how we can help." },
   { q: "How does getting a quote work?", a: "Tell us about the job through our quote form and we’ll review the details and get in touch. If we need to see the job in person before quoting, we’ll arrange a visit with you." },
   { q: "Do you work with businesses and landlords?", a: "Yes. We work with landlords, property managers, estate agents and businesses on repairs, maintenance, planned works and larger property projects." },
   { q: "What areas do you cover?", a: "We cover London, Greater London and selected areas across the UK. If you’re unsure whether we cover your location, send us your postcode and we’ll let you know." },
@@ -122,5 +122,8 @@ export const COMMERCIAL_OPTIONS = {
   sites: ["1", "2–5", "6–20", "21+"],
 };
 
-export const QUOTE_OPTIONS = ["Repairs & Maintenance", "Kitchen or Bathroom", "Renovation or Extension", "Plumbing & Heating", "Electrical", "Other"];
 export const CALLBACK_TIMES = ["Morning", "Afternoon", "Evening"];
+
+// Services page "Book" buttons link to /quote?service=<slug>. The quote form preselects the matching service.
+export const serviceSlug = (title: string) => title.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+export const serviceFromSlug = (slug?: string) => SERVICES.find((s) => serviceSlug(s.title) === slug)?.title ?? "";

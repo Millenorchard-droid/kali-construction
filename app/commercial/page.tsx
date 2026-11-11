@@ -34,7 +34,7 @@ export default function Commercial() {
         </div>
       </section>
 
-      <FinalCta headline="Ready When You Are" text="We’ll take it from here." button="Make an Enquiry →" href="/commercial#enquiry" />
+      <FinalCta headline="Ready when you are." text="We’ll take it from here." button="Make an Enquiry →" href="/commercial#enquiry" />
     </>
   );
 }
