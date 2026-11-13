@@ -214,31 +214,20 @@ select.field option { color: var(--ink); }
 .hiw-card-body { color: var(--graphite); font-size: 15px; line-height: 1.55; }
 .hiw-card-art { width: 100%; margin-top: auto; padding-top: 10px; }
 
-@keyframes a-slide { from { opacity: 0; transform: translateX(-26px); } to { opacity: 1; transform: none; } }
-@keyframes a-pop { 0% { transform: scale(.2); opacity: 0; } 70% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
-@keyframes a-live { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .55; } }
-@keyframes a-draw { from { stroke-dashoffset: 16; } to { stroke-dashoffset: 0; } }
-@keyframes a-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+/* Icon tile animations: tile pops in once, then one simple motion per step */
+@keyframes t-pop { 0% { transform: scale(.8); opacity: 0; } 70% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes t-ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.45); opacity: 0; } }
+@keyframes t-wave { 0%, 100% { opacity: .2; } 50% { opacity: 1; } }
+@keyframes t-draw { 0%, 12% { stroke-dashoffset: var(--len); } 40%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: var(--len); } }
 
-/* 01: three enquiries slide in one after another, then "We can help" lands */
-.art-svg.play .a-row { animation: a-slide .55s cubic-bezier(.2, .8, .2, 1) both; }
-.art-svg.play .a-row.r1 { animation-delay: .2s; }
-.art-svg.play .a-row.r2 { animation-delay: .9s; }
-.art-svg.play .a-row.r3 { animation-delay: 1.6s; }
-.art-svg.play .a-live { animation: a-live 1.8s ease-in-out infinite; }
-/* 01 and 02: closing pill pops in after the last row, then pulses gently */
-.art-svg.play .a-pill { animation: a-pop .5s cubic-bezier(.34, 1.56, .64, 1) 2.5s both, a-pulse 2.6s ease-in-out 3.1s infinite; }
-/* 02: each tick circle pops, then its tick is drawn, in order: work, costs, what happens next */
-.art-svg.play .a-tickg { animation: a-pop .4s cubic-bezier(.34, 1.56, .64, 1) both; }
-.art-svg.play .a-tickg.r1 { animation-delay: .4s; }
-.art-svg.play .a-tickg.r2 { animation-delay: 1.3s; }
-.art-svg.play .a-tickg.r3 { animation-delay: 2.2s; }
-.a-tickpath { stroke-dasharray: 16; stroke-dashoffset: 0; }
-.art-svg.play .a-tickpath { animation: a-draw .35s ease both; }
-.art-svg.play .a-tickg.r1 .a-tickpath { animation-delay: .6s; }
-.art-svg.play .a-tickg.r2 .a-tickpath { animation-delay: 1.5s; }
-.art-svg.play .a-tickg.r3 .a-tickpath { animation-delay: 2.4s; }
-.a-pop { animation: a-pop .5s cubic-bezier(.34, 1.56, .64, 1) both; }
+.t-draw { stroke-dasharray: var(--len); stroke-dashoffset: 0; }
+.t-ring { opacity: 0; }
+.art-svg.play .t-tile { animation: t-pop .55s cubic-bezier(.34, 1.56, .64, 1) both; }
+.art-svg.play .t-ring { animation: t-ring 2.4s ease-out .6s infinite; }
+.art-svg.play .t-wave { animation: t-wave 1.6s ease-in-out infinite; }
+.art-svg.play .t-wave.w2 { animation-delay: .35s; }
+.art-svg.play .t-draw { animation: t-draw 4s ease-in-out infinite; }
+.art-svg.play .t-draw-late { animation-delay: .5s; }
 
 @media (prefers-reduced-motion: reduce) {
   .art-svg * { animation: none !important; }
