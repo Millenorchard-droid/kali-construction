@@ -39,7 +39,7 @@ export const CERTIFICATIONS: { label: string; confirmed: boolean }[] = [
 
 export const HOME_PICKER = {
   Homeowner: [
-    { label: "Repairs & Maintenance", tag: "HASSLE-FREE", title: "Repairs, big or small", body: "Tell us what needs doing and we’ll get the right trade on the job. You’ll know the cost before work begins." },
+    { label: "Repairs & Maintenance", tag: "HASSLE-FREE", title: "Repairs, big or small", body: "Tell us what needs doing and we’ll get the right trade on the job.\nYou’ll know the cost before work begins." },
     { label: "Kitchen or Bathroom", tag: "START TO FINISH", title: "Full project management", body: "From first fix to finishing touches, we’ll bring the whole project together and keep you clear on costs along the way." },
     { label: "Renovation or Extension", tag: "FULL SERVICE", title: "Managed from start to finish", body: "From plans to completion, we’ll coordinate the work, the trades and everything in between." },
     { label: "Plumbing & Heating", tag: "QUALIFIED TRADES", title: "Repairs & installations", body: "Whether it needs fixing, replacing or installing, we’ll get the right expertise on the job and agree the cost first." },

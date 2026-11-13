@@ -38,7 +38,7 @@ export default function Picker() {
           <div>
             <span className="badge-outline" style={{ marginBottom: 16, fontSize: 11 }}>{active.tag}</span>
             <h3 className="hd tight" style={{ fontSize: 24, margin: "16px 0 12px" }}>{active.title}</h3>
-            <p style={{ fontSize: 15, color: "var(--graphite)", lineHeight: 1.55 }}>{active.body}</p>
+            <p style={{ fontSize: 15, color: "var(--graphite)", lineHeight: 1.55, whiteSpace: "pre-line" }}>{active.body}</p>
           </div>
           <Link href="/quote" className="btn-filled full" style={{ marginTop: 24 }}>Get a Quote →</Link>
         </div>

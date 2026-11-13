@@ -36,7 +36,7 @@ export default function Services() {
       <section className="hiw-section">
         <div className="section">
           <p className="eyebrow" style={{ marginBottom: 12 }}>HOW IT WORKS</p>
-          <h2 className="hd tight" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", maxWidth: 420, marginBottom: 48 }}>Simple from start to finish.</h2>
+          <h2 className="hd tight" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", marginBottom: 48 }}>Simple from start to finish.</h2>
           <StepCards />
         </div>
       </section>

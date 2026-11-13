@@ -14,26 +14,29 @@ const INTRO = [
   "We take care of the process from start to finish, coordinating the work, keeping communication clear and making sure customers know what to expect along the way.",
 ];
 
-type Item = { icon: IconName; title: string; body: string };
+type Item = { icon: IconName; title: string; body: string; tag: string };
 
 const TRUST: Item[] = [
   // Use only if it matches the confirmed insurance arrangements.
-  { icon: "shield", title: "Fully Insured", body: "Public liability insurance on every job." },
+  { icon: "shield", title: "Fully Insured", body: "Public liability insurance on every job.", tag: "EVERY JOB" },
   // TODO (Nelly): confirm this wording matches the registration status of the engineers or company doing gas work.
-  { icon: "flame", title: "Gas Safe Registered", body: "Registered engineers for gas works." },
-  { icon: "pound", title: "Clear Pricing", body: "Clear quotes, with costs agreed before work begins." },
+  { icon: "flame", title: "Gas Safe Registered", body: "Registered engineers for gas works.", tag: "GAS WORKS" },
+  { icon: "pound", title: "Clear Pricing", body: "Clear quotes, with costs agreed before work begins.", tag: "AGREED FIRST" },
 ];
 
 const WHO: Item[] = [
-  { icon: "home", title: "Homeowners", body: "Repairs, improvements and renovations for your home." },
-  { icon: "key", title: "Landlords & Agents", body: "Property maintenance and refurbishment between tenancies." },
-  { icon: "building2", title: "Businesses", body: "Commercial repairs and building works for offices, shops and other business premises." },
+  { icon: "home", title: "Homeowners", body: "Repairs, improvements and renovations for your home.", tag: "YOUR HOME" },
+  { icon: "key", title: "Landlords & Agents", body: "Property maintenance and refurbishment between tenancies.", tag: "LETTINGS" },
+  { icon: "building2", title: "Businesses", body: "Commercial repairs and building works for offices, shops and other business premises.", tag: "COMMERCIAL" },
 ];
 
-function InfoCard({ icon, title, body }: Item) {
+function InfoCard({ icon, title, body, tag }: Item) {
   return (
     <article className="card-white lift about-card">
-      <IconTile name={icon} />
+      <div className="about-card-top">
+        <IconTile name={icon} />
+        <span className="badge-outline" style={{ fontSize: 10 }}>{tag}</span>
+      </div>
       <h3 className="hd tight">{title}</h3>
       <p>{body}</p>
     </article>
