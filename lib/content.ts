@@ -58,7 +58,7 @@ export const HOME_PICKER = {
 
 // Point 1: counters. `from` -> `to`, prefix/suffix wrap the number.
 export const STATS = [
-  { from: 200, to: 0, prefix: "£", suffix: "", label: "TO REQUEST A QUOTE" },
+  { from: null, to: null, prefix: "", suffix: "", text: "FREE", label: "TO REQUEST A QUOTE" },
   { from: 1, to: 24, prefix: "", suffix: "H", label: "WE’LL GET BACK TO YOU" },
   { from: 50, to: 0, prefix: "", suffix: "", label: "JOBS TOO SMALL" },
   { from: null, to: null, prefix: "", suffix: "", text: "UK", label: "COVERAGE BEYOND LONDON" },

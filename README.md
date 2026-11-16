@@ -6,7 +6,7 @@ Next.js 14, TypeScript. Run with `npm install` then `npm run dev`.
 - `lib/content.ts` holds all copy, reviews, FAQs and company details. Edit wording here.
 - `app/globals.css` holds the design system. The palette (charcoal, cream, off-white and lime yellow) is defined once in `:root`.
 - `components/FinalCta.tsx` is the single CTA layout used on Services, Commercial, About Us and Testimonials.
-- `components/Counter.tsx` is the homepage counting animation (GBP 200 down to 0, 24H up from 1, 50 down to 0).
+- `components/Counter.tsx` is the homepage counting animation (FREE shown as text, 24H up from 1, 50 down to 0).
 
 ## Checklist status (22 October 2026 master list)
 1. Counter animation: done.

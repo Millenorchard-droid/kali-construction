@@ -31,12 +31,11 @@ export function useInView<T extends Element>(threshold = 0.35) {
 const BOX = { transformBox: "fill-box", transformOrigin: "center" } as const;
 const ICON = { fill: "none", stroke: "var(--ink)", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" } as const;
 
-// Shared frame: cream panel, soft ring behind a 112px lime tile, 52px icon centred on the tile.
+// Shared frame: cream panel with a 112px lime tile and a 52px icon centred on it.
 function Frame({ play, label, children }: { play: boolean; label: string; children: React.ReactNode }) {
   return (
     <svg viewBox="0 0 372 260" className={`art-svg tile-art${play ? " play" : ""}`} role="img" aria-label={label}>
       <rect width="372" height="260" rx="24" fill="var(--sand-card)" />
-      <rect x="130" y="74" width="112" height="112" rx="30" fill="none" stroke="var(--lime)" strokeWidth="2" className="t-ring" style={BOX} />
       <rect x="130" y="74" width="112" height="112" rx="30" fill="var(--lime)" className="t-tile" style={BOX} />
       <g transform="translate(160 104) scale(2.08)">{children}</g>
     </svg>

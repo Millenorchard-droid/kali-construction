@@ -216,14 +216,11 @@ select.field option { color: var(--ink); }
 
 /* Icon tile animations: tile pops in once, then one simple motion per step */
 @keyframes t-pop { 0% { transform: scale(.8); opacity: 0; } 70% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
-@keyframes t-ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.45); opacity: 0; } }
 @keyframes t-wave { 0%, 100% { opacity: .2; } 50% { opacity: 1; } }
 @keyframes t-draw { 0%, 12% { stroke-dashoffset: var(--len); } 40%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: var(--len); } }
 
 .t-draw { stroke-dasharray: var(--len); stroke-dashoffset: 0; }
-.t-ring { opacity: 0; }
 .art-svg.play .t-tile { animation: t-pop .55s cubic-bezier(.34, 1.56, .64, 1) both; }
-.art-svg.play .t-ring { animation: t-ring 2.4s ease-out .6s infinite; }
 .art-svg.play .t-wave { animation: t-wave 1.6s ease-in-out infinite; }
 .art-svg.play .t-wave.w2 { animation-delay: .35s; }
 .art-svg.play .t-draw { animation: t-draw 4s ease-in-out infinite; }
@@ -265,6 +262,11 @@ select.field option { color: var(--ink); }
 .about-intro-p { color: var(--graphite); font-size: 17px; line-height: 1.7; }
 .about-intro-p:first-of-type { color: var(--ink); font-size: 19px; font-weight: 500; }
 .about-h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); margin-bottom: 32px; }
+/* Dark band: splits the page so light and dark sections alternate (intro light, why us dark, who we work with light, CTA dark) */
+.about-band { background: var(--ink); padding-top: 72px; }
+.about-band .eyebrow { color: var(--stone-on-dark); }
+.about-band .about-h2 { color: var(--white); }
+.about-band + .about-sec { padding-top: 72px; }
 .about-sub { color: var(--graphite); font-size: 16px; line-height: 1.65; max-width: 620px; margin-bottom: 32px; }
 .about-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .about-card { padding: 24px; display: flex; flex-direction: column; gap: 16px; height: 100%; }

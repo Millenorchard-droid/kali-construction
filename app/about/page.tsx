@@ -70,6 +70,7 @@ export default function About() {
       </section>
 
       {/* SECTION 2: three trust boxes */}
+      <div className="about-band">
       <section className="wrap about-sec about-centred" aria-labelledby="about-trust">
         <Reveal>
           <div className="about-centre-head">
@@ -81,6 +82,7 @@ export default function About() {
           </div>
         </Reveal>
       </section>
+      </div>
 
       {/* SECTION 3: who we work with */}
       <section className="wrap about-sec about-centred" aria-labelledby="about-who">
